@@ -1,16 +1,16 @@
 package Ejercicio_01;
 
-public class Estudiante {
+public class Student {
     private String name;
     private String lastName;
     private String year; // curso
     private double grade; // calificación
 
-    public Estudiante(String name, String lastName, String year) {
-    this.name = name;
-    this.lastName = lastName;
-    this.year = year;
-    this.grade = 0.0;
+    public Student(String name, String lastName, String year) {
+        this.name = name;
+        this.lastName = lastName;
+        this.year = year;
+        this.grade = 0.0;
     }
 
     public String getName() {
@@ -20,6 +20,9 @@ public class Estudiante {
     public void setName(String name) {
         if (!name.isEmpty()) {
             this.name = name;
+        }
+        else {
+            System.out.println("Inválido: campo vacío");
         }
     }
 
