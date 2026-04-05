@@ -3,6 +3,15 @@ public class Character {
     private int level;
     private int healthPoints;
     public boolean isBeaten;
+    private int id;
+
+    // Atributo estático compartido por toda la clase
+    private static int totalPersonajes = 0;
+    // Método utilitario interno para auto-incrementar
+    private int generarId() {
+        totalPersonajes++;
+        return totalPersonajes;
+    }
 
     public Character(String name) {
         this.name = name;
