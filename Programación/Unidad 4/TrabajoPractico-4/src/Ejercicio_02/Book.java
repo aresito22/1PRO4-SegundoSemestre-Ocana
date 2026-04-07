@@ -53,31 +53,20 @@ public class Book {
     }
 
     public void updateTitle(String title) {
-        if (!title.isEmpty()) {
-            setTitle(title);
-            System.out.println("Título actualizado.");
-        } else {
-            System.out.println("Error: campo vacío.");
-        }
+        setTitle(title);
     }
 
     public void updateTitle(String prefix, String title) {
         if (!prefix.isEmpty() && !title.isEmpty()) {
             String newTitle = prefix + " " + title;
             setTitle(newTitle);
-            System.out.println("Título actualizado");
         } else {
-            System.out.println("Error: campos vacíos.");
+            System.out.println("Error: campo vacío.");
         }
     }
 
     public static void updatePublisher(String publisher) {
-        if (!publisher.isEmpty()) {
-            Book.publisher = publisher;
-            System.out.println("Editorial actualizada.");
-        } else {
-            System.out.println("Error: campo vacío.");
-        }
+        setPublisher(publisher);
     }
 
     @Override
