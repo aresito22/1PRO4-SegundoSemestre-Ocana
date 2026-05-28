@@ -1,0 +1,43 @@
+-- Copias de tablas --
+CREATE TABLE nueva_tabla LIKE tabla_original; 
+-- Copiar SOLO estructura (sin datos, sin claves foráneas)
+--Esto copia:
+--columnas
+--tipos de datos
+--índices
+--claves primarias
+--claves únicas
+
+--Pero NO copia:
+--claves foráneas
+--triggers
+
+-- Copiar TODO: estructura + índices + claves foráneas + constraints
+SHOW CREATE TABLE tabla_original; -- ejecutar
+
+-- Resultado
+CREATE TABLE `tabla_original` (
+  ...
+  CONSTRAINT `fk_xxx` FOREIGN KEY (`campo`) REFERENCES `otra_tabla` (`id`)
+) ENGINE=InnoDB ...
+
+-- Copiar ese resultado, cambiar el nombre de la tabla, y ejecutarlo:
+CREATE TABLE nueva_tabla (
+   ...   -- todo igual
+) ENGINE=InnoDB;
+
+-- Esto sí copia absolutamente todo, incluyendo:
+--columnas
+--tipos
+--índices
+--claves primarias
+--claves foráneas
+--restricciones
+--engine
+--collation
+
+-- Copiar también los datos (si es necesario)
+-- Use un INSERT a la nueva_tabla, con los datos de la tabla_original.
+INSERT INTO nueva_tabla
+SELECT *
+FROM tabla_original;
